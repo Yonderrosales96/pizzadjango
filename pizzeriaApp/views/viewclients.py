@@ -1,17 +1,21 @@
-from pizzeriaApp.models import Pizza
+from pizzeriaApp.models import Pizza,Order
 from pizzeriaApp.models import Client
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from pizzeriaApp.forms import clientForm
-
+import datetime
 
 def create(request):
     if request.method == 'POST':
         form = clientForm(request.POST)
         if form.is_valid():
-            client =form.save() 
+            now = datetime.datetime.now()
+            orden = Order(buy_date = now,total = 0)
+            client =form.save()
+            orden.fk_client = client
+            orden.save() 
             return redirect('mostrarcliente',id = client.id)
     else:
         form = clientForm()
