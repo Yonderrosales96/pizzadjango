@@ -1,11 +1,11 @@
 from pizzeriaApp.models import Pizza
+from pizzeriaApp.models import Client
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from pizzeriaApp.forms import clientForm
-def index(request):
-    return HttpResponse("metodo index")
+
 
 def create(request):
     if request.method == 'POST':
@@ -18,5 +18,10 @@ def create(request):
     return render(request,'clientecreate.html',{'form':form})      
 
 def show(request,id):
-    return HttpResponse("el id cliente es ${0}" .format(id) )
-    
+    cliente = Client.objects.get(id = id)
+    return render(request,'showcliente.html',{'cliente': cliente})
+
+
+def index(request):
+    clientes = Client.objects.all()
+    return render(request,'indexcliente.html',{'clientes': clientes})
