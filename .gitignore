@@ -45,6 +45,7 @@ lib64/
 parts/
 sdist/
 var/
+.vscode/
 ENTORNOV/
 *.egg-info/
 .installed.cfg
