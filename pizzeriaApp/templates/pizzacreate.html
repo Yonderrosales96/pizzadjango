@@ -1,5 +1,20 @@
+{% load staticfiles %}
+
+<head>
+  <script type = "text/javascript" src="{% static 'javascript/jquery-3.3.1.min.js' %}"></script>
+  <script type = "text/javascript" src="{% static 'javascript/pizza.js' %}"></script>
+</head>
+
 <form action="/pizzeriaApp/pizza" method="post">
     {% csrf_token %}
-    {{ form }}
+    Tamaño: {{form.size}}
+    <br><br>
+    Ingredientes:
+    <button id="Agregar" onclick="agregarIngrediente()"> + </button>
+    <br><br>
+    <ingredients>
+      {{form.ingredients}}
+    </ingredients>
+    <br><br>
     <input type="submit" value="Submit">
 </form>

@@ -15,11 +15,13 @@ def create(request):
             orden = Order(buy_date = now,total = 0)
             client =form.save()
             orden.fk_client = client
-            orden.save() 
-            return redirect('mostrarcliente',id = client.id)
+            orden.save()
+            # return redirect('mostrarcliente',id = client.id)
+            #return HttpResponseRedirect('createpizza',"Text only, please.", content_type="text/plain")
+            return redirect ('createpizza')
     else:
         form = clientForm()
-    return render(request,'clientecreate.html',{'form':form})      
+    return render(request,'clientecreate.html',{'form':form})
 
 def show(request,id):
     cliente = Client.objects.get(id = id)

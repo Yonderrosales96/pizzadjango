@@ -1,5 +1,8 @@
-from django.forms import ModelForm
+from django.forms import ModelForm,ModelChoiceField
 from pizzeriaApp.models import Client,Pizza
+
+
+
 class clientForm(ModelForm):
     class Meta:
         model = Client
@@ -8,6 +11,4 @@ class clientForm(ModelForm):
 class pizzaForm(ModelForm):
     class Meta:
         model = Pizza
-        fields = ['size','price']
-        
-
+        fields = ['size','price','ingredients']
