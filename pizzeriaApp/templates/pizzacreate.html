@@ -7,14 +7,17 @@
 
 <form action="/pizzeriaApp/pizza" method="post">
     {% csrf_token %}
-    Tamaño: {{form.size}}
-    <br><br>
-    Ingredientes:
-    <button id="Agregar" onclick="agregarIngrediente()"> + </button>
-    <br><br>
-    <ingredients>
-      {{form.ingredients}}
-    </ingredients>
-    <br><br>
+    {{form.as_p}}
     <input type="submit" value="Submit">
 </form>
+
+{% comment %} <form action="/pizzeriaApp/pizza" method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+    {%for form in formset%}
+    {{form}}
+    {%endfor%}
+    </table>
+    <input type="submit" value="Submit">
+</form> {% endcomment %}

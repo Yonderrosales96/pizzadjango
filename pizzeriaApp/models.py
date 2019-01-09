@@ -36,9 +36,9 @@ class Pizza (models.Model):
         Ingredient,
         through='Pizza_Ingredient',
         through_fields=('fk_pizza','fk_ingredient'),
-    )
+    blank =True)
     size = models.ForeignKey(Size,on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10,decimal_places=2)
+    price = models.DecimalField(max_digits=10,decimal_places=2,null = True)
 
 class Pizza_Ingredient (models.Model):
     fk_pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)

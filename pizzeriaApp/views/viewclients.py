@@ -14,8 +14,10 @@ def create(request):
             now = datetime.datetime.now()
             orden = Order(buy_date = now,total = 0)
             client =form.save()
+            client.save()
             orden.fk_client = client
             orden.save()
+            
             # return redirect('mostrarcliente',id = client.id)
             #return HttpResponseRedirect('createpizza',"Text only, please.", content_type="text/plain")
             return redirect ('createpizza')

@@ -1,4 +1,4 @@
-<h3>pizza/h3>
+<h3>Detalles de la pizza</h3>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -22,3 +22,33 @@
   </tbody>
 
 </table>
+
+<h3>lista de ingredientes</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>precio</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+{%for ingrediente in pizza.ingredients.all%}
+      <tr>
+        
+        <td>{{ ingrediente.id }}</td>
+        <td>{{ ingrediente.name }}</td>
+       <td>{{ ingrediente.price }}</td>
+       
+      </tr>
+ {%endfor%}
+  </tbody>
+
+</table>
+
+
+<a href="{%url 'createpizza'%}">Desea ordenar otra pizza? </a>
+
+<a href="{%url 'showorden' pizza.fk_order.id %}">Finalizar pedido </a>

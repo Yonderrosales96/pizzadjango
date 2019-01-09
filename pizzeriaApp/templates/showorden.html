@@ -1,0 +1,52 @@
+<h3>pizza</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>cliente</th>
+      <th>fecha</th>
+      <th>precio</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+        <td>{{ orden.fk_client.name }}</td>
+        <td>{{ orden.buy_date }}</td>
+        <td>{{ orden.total}}</td>
+       
+
+      </tr>
+
+  </tbody>
+
+</table>
+
+<h3>lista de pizzas pedidas</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>id</th>
+      <th>Tamano</th>
+      <th>precio</th>
+     <th>ver mas</th>
+    </tr>
+  </thead>
+
+  <tbody>
+{%for pizza in pizzas%}
+      <tr>
+        
+        <td>{{ pizza.id }}</td>
+        <td>{{ pizza.size }}</td>
+       <td>{{pizza.price }}</td>
+      <td>
+      <a href="{%url 'mostrarpizza' pizza.id %}"> ver mas </a>
+      </td>
+      </tr>
+ {%endfor%}
+  </tbody>
+
+</table>
+
