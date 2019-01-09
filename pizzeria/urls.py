@@ -17,12 +17,20 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from django.urls import include
+from pizzeriaApp.views import viewventas
+
 
 def hello_world(request):
     return HttpResponse('Hello world')
 
 
 urlpatterns = [
+    path('admin/pizzeriaApp/generalVentas',viewventas.getVentas),
+    path('admin/pizzeriaApp/VentasDiaria',viewventas.getVentasDiaria),
+    path('admin/pizzeriaApp/search',viewventas.search),
+    path('admin/pizzeriaApp/VentasBySize',viewventas.getVentasBySize),
+    path('admin/pizzeriaApp/VentasByCliente',viewventas.getVentasByCliente),
+    path('admin/pizzeriaApp/VentasByIngrediente',viewventas.getVentasByIngrediente),
     path('admin/', admin.site.urls),
     path('hello-world/',hello_world),
     path('pizzeriaApp/', include('pizzeriaApp.urls')),

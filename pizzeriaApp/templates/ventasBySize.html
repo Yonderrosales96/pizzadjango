@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <script type = "text/javascript" src="{% static 'javascript/jquery-3.3.1.min.js' %}"></script>
+  <script type = "text/javascript" src="{% static 'javascript/ajax.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<form id="target" method = "GET" action="search" >
+  <div>
+    <select  name = "size">
+      {%for size in sizes%}
+        <option value="{{size.id}}">{{size.name}}</option>
+      {%endfor%}
+    </select>
+    <!-- <input list="browsers" name="ingredient"> -->
+    <input type="submit" value="Buscar"  >
+  </div>
+</form>
+<br>
+<br>
+<div>
+  <table id="data">
+  </table>
+</div>
+{% endblock %}
