@@ -12,6 +12,5 @@ urlpatterns = [
     path('cliente/index',views.index,name= 'indexcliente'),
     path('pizza',views.createpizza, name = 'createpizza'),
     path('<int:id>/pizza',views.showpizza),
-    path('welcome',welcome)
-
+    path('welcome',welcome),
 ]

@@ -1,6 +1,5 @@
-from django.forms import ModelForm,ModelChoiceField
-from pizzeriaApp.models import Client,Pizza
-
+from django.forms import ModelForm
+from pizzeriaApp.models import Client,Pizza,Ingredient
 
 
 class clientForm(ModelForm):

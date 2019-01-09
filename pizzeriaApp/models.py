@@ -9,7 +9,11 @@ class Client (models.Model):
 class Order (models.Model):
     fk_client = models.ForeignKey(Client,on_delete=models.CASCADE)
     buy_date = models.DateTimeField('fecha de compra')
-    total = models.DecimalField(max_digits=15,decimal_places=10)
+    total = models.DecimalField(max_digits=15,decimal_places=2)
+    def __str__(self):
+        return self.buy_date.strftime('%m/%d/%Y')
+    def __unicode__(self):
+        return '%s' % self.buy_date
 
 class Size (models.Model):
     name = models.CharField(max_length=20)
